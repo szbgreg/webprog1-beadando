@@ -16,13 +16,7 @@ function handleSubmit(e) {
   }
 
   // Új sor hozzáadása a táblázathoz
-  const table = document.getElementById("student-table");
-  const newRow = table.insertRow();
-
-  newRow.insertCell(0).innerText = name;
-  newRow.insertCell(1).innerText = birthYear;
-  newRow.insertCell(2).innerText = study;
-  newRow.insertCell(3).innerText = code.toUpperCase();
+  insertRow(formData);
 
   form.reset();
 }
@@ -76,4 +70,16 @@ function validateForm(formData) {
   }
 
   return isValid;
+}
+
+// Új sor hozzáadása a táblázathoz
+function insertRow(formData) {
+  const { name, birthYear, study, code } = formData;
+  const table = document.getElementById("student-table");
+  const newRow = table.insertRow();
+
+  newRow.insertCell(0).innerText = name;
+  newRow.insertCell(1).innerText = birthYear;
+  newRow.insertCell(2).innerText = study;
+  newRow.insertCell(3).innerText = code.toUpperCase();
 }
