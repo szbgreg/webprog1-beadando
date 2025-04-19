@@ -41,24 +41,32 @@
         </ul>
       </section>
 
-      <form>
-        <label for="name">Név</label>
-        <input type="text" id="name" name="name" />
+      <div class="student-form">
+        <h3>Tanuló hozzáadása</h3>
 
-        <label for="birth-year">Születési év</label>
-        <input type="text" id="birth-year" name="birth-year" />
+        <form onsubmit="handleSubmit(event)">
+          <label for="name">Név</label>
+          <label class="error hide" id="nameValidationError"></label>
+          <input type="text" id="name" name="name" />
 
-        <label for="study">Szak</label>
-        <input type="text" id="study" name="study" />
+          <label for="birthYear">Születési év</label>
+          <label class="error hide" id="birthYearValidationError"></label>
+          <input type="text" id="birthYear" name="birthYear" />
 
-        <label for="code">Neptun kód</label>
-        <input type="text" id="code" name="code" />
+          <label for="study">Szak</label>
+          <label class="error hide" id="studyValidationError"></label>
+          <input type="text" id="study" name="study" />
 
-        <button type="submit">Hozzáadás</button>
-      </form>
+          <label for="code">Neptun kód</label>
+          <label class="error hide" id="codeValidationError"></label>
+          <input type="text" id="code" name="code" />
+
+          <button type="submit">Hozzáadás</button>
+        </form>
+      </div>
 
       <div class="table-container">
-        <table>
+        <table id="student-table">
           <thead>
             <tr>
               <th>Név</th>
@@ -74,6 +82,7 @@
     </div>
     <footer>
       <p>Szabó Gergely (X665HD)</p>
+      <script src="js/table.js"></script>
     </footer>
   </body>
 </html>
