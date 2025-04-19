@@ -1,3 +1,42 @@
+// Itt megadunk pár tesztadatot
+const testData = [
+  {
+    name: "Kiss Péter",
+    birthYear: "2000",
+    study: "Mérnökinformatikus",
+    code: "ABC123",
+  },
+  {
+    name: "Nagy Anna",
+    birthYear: "1998",
+    study: "Programtervező informatikus",
+    code: "DEF456",
+  },
+  {
+    name: "Szabó János",
+    birthYear: "1999",
+    study: "Üzemmérnök informatikus",
+    code: "GHI789",
+  },
+  {
+    name: "Tóth Eszter",
+    birthYear: "2001",
+    study: "Logsztikai mérnök",
+    code: "JKL012",
+  },
+];
+
+// A táblázat feltöltése a tesztadatokkal
+function loadTable() {
+  testData.forEach((data) => {
+    insertRow(data);
+  });
+}
+
+window.onload = function () {
+  loadTable();
+};
+
 // Form validálása gombnyomásra
 function handleSubmit(e) {
   e.preventDefault();
