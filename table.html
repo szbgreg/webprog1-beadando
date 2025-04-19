@@ -24,7 +24,53 @@
       <h2>Aside rész</h2>
     </aside>
     <div class="content">
-      <h2>Táblázat</h2>
+      <h2>2. Táblázat</h2>
+
+      <section>
+        <p>
+          <b>A feladat:</b> CRUD funkcionalitás (Create, Read, Update, Delete)
+          megvalósítása táblázattal.
+        </p>
+        <ul>
+          <li>legalább 4x4-es táblázat</li>
+          <li>legyen validáció minden mezőre pl. kötelező, min, max hossz</li>
+          <li>A táblázatot lehessen rendezni bármelyik oszlop alapján</li>
+          <li>
+            A táblázatban lehessen szűrni/keresni bármelyik oszlop alapján
+          </li>
+        </ul>
+      </section>
+
+      <form>
+        <label for="name">Név</label>
+        <input type="text" id="name" name="name" />
+
+        <label for="birth-year">Születési év</label>
+        <input type="text" id="birth-year" name="birth-year" />
+
+        <label for="study">Szak</label>
+        <input type="text" id="study" name="study" />
+
+        <label for="code">Neptun kód</label>
+        <input type="text" id="code" name="code" />
+
+        <button type="submit">Hozzáadás</button>
+      </form>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Név</th>
+              <th>Születési év</th>
+              <th>Szak</th>
+              <th>Neptun kód</th>
+            </tr>
+          </thead>
+
+          <tbody></tbody>
+        </table>
+      </div>
     </div>
     <footer>
       <p>Szabó Gergely (X665HD)</p>
