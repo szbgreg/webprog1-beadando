@@ -1,8 +1,67 @@
-.student-form,
-.search-container {
+.student-form {
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-form form {
   width: 450px;
 }
 
 .table-container {
   clear: both;
+  margin-top: 10px;
+  width: 800px;
+}
+
+.table-container table {
+  border-collapse: collapse;
+  column-gap: 0px;
+  width: 100%;
+}
+
+.table-container table thead {
+  background-color: #f2f2f2;
+}
+
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: right;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #f5eedb;
+  cursor: pointer;
+}
+
+table a {
+  color: #d4a200;
+  text-decoration: none;
+}
+
+thead th {
+  cursor: pointer;
+}
+
+.search-container {
+  margin-bottom: 10px;
+  text-align: right;
+  width: 800px;
+}
+
+.search-container input {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 8px;
+  text-align: right;
+  width: 100%;
+  max-width: 300px;
 }
