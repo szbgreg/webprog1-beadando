@@ -188,3 +188,25 @@ function deleteRow(button) {
     table.deleteRow(row.rowIndex);
   }
 }
+
+// Sorok rendezése
+function sortTable(index, isNumber = false) {
+  const table = document.getElementById("student-table");
+  const rows = Array.from(table.rows).slice(1);
+
+  const sortedRows = rows.sort((a, b) => {
+    const aText = a.cells[index].innerText;
+    const bText = b.cells[index].innerText;
+
+    if (isNumber) {
+      return parseInt(aText) > parseInt(bText) ? 1 : -1;
+    } else {
+      return aText.toUpperCase() > bText.toUpperCase() ? 1 : -1;
+    }
+  });
+
+  // Kitöröljük a régi sorokat és a rendezettet adjuk hozzá
+  const tbody = table.getElementsByTagName("tbody")[0];
+  tbody.innerHTML = "";
+  sortedRows.forEach((row) => tbody.appendChild(row));
+}
