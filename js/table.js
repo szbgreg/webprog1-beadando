@@ -142,7 +142,7 @@ function updateRow(formData) {
   selectedRow.cells[0].innerText = name;
   selectedRow.cells[1].innerText = birthYear;
   selectedRow.cells[2].innerText = study;
-  selectedRow.cells[3].innerText = code;
+  selectedRow.cells[3].innerText = code.toUpperCase();
 
   selectedRow = null;
 }
