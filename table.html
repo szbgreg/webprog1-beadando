@@ -67,6 +67,15 @@
       </div>
 
       <div class="table-container">
+        <div class="search-container">
+          <label for="tableSearch">Szűrés a táblázatban:</label>
+          <input
+            type="text"
+            id="tableSearch"
+            onkeyup="filterTable()"
+            placeholder="Keresés..."
+          />
+        </div>
         <table id="student-table">
           <thead>
             <tr>
