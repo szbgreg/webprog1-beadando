@@ -119,6 +119,27 @@ function validateForm(formData) {
     isValid = false;
   }
 
+  // Neptunkódot ne lehessen felvenni többször
+  const table = document.getElementById("student-table");
+  const rows = table.getElementsByTagName("tr");
+
+  for (let i = 1; i < rows.length; i++) {
+    const existingCode = rows[i].cells[3].innerText;
+
+    // Szerkesztésnél ha nem szerkesztjük a neptunkódot, akkor ne ellenőrizzük
+    if (selectedRow && selectedRow.cells[3].innerText === code.toUpperCase()) {
+      continue;
+    }
+
+    // Akkor van csak gond, ha már létezik a kód egy másik sorban
+    if (existingCode.toUpperCase() === code.toUpperCase()) {
+      codeElement.innerText = "Ez a Neptun kód már létezik!";
+      codeElement.style.display = "inline-block";
+      isValid = false;
+      break;
+    }
+  }
+
   return isValid;
 }
 
