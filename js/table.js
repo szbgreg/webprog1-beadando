@@ -222,7 +222,7 @@ function filterTable() {
     const cells = rows[i].getElementsByTagName("td");
     let match = false;
 
-    for (let j = 0; j < cells.length; j++) {
+    for (let j = 0; j < cells.length-2; j++) {
       if (cells[j] && cells[j].innerText.toLowerCase().includes(filter)) {
         match = true;
         break;
