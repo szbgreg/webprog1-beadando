@@ -129,6 +129,7 @@ function insertRow(formData) {
   newRow.insertCell(2).innerText = study;
   newRow.insertCell(3).innerText = code.toUpperCase();
   newRow.insertCell(4).innerHTML = `<a onclick="editRow(this)">Szerkesztés</a>`;
+  newRow.insertCell(5).innerHTML = `<a onclick="deleteRow(this)">Törlés</a>`;
 }
 
 // Sor frissítése a táblázatban
@@ -150,4 +151,13 @@ function editRow(button) {
   document.getElementById("birthYear").value = selectedRow.cells[1].innerHTML;
   document.getElementById("study").value = selectedRow.cells[2].innerHTML;
   document.getElementById("code").value = selectedRow.cells[3].innerHTML;
+}
+
+// Sor törlése
+function deleteRow(button) {
+  if (confirm("Biztosan törlöd ezt a sort?")) {
+    const row = button.parentElement.parentElement;
+    const table = document.getElementById("student-table");
+    table.deleteRow(row.rowIndex);
+  }
 }
