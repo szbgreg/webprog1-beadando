@@ -44,14 +44,8 @@ window.onload = function () {
 function handleSubmit(e) {
   e.preventDefault();
 
-  // Form adatok kiolvasása
   const form = e.target;
-  const name = form.name.value;
-  const birthYear = form.birthYear.value;
-  const study = form.study.value;
-  const code = form.code.value;
-
-  const formData = { name, birthYear, study, code };
+  const formData = readData(form);
 
   if (!validateForm(formData)) {
     return;
@@ -65,6 +59,16 @@ function handleSubmit(e) {
   }
 
   form.reset();
+}
+
+// A form adatok kiolvasása
+function readData(form) {
+  const name = form.name.value;
+  const birthYear = form.birthYear.value;
+  const study = form.study.value;
+  const code = form.code.value;
+
+  return { name, birthYear, study, code };
 }
 
 // A form validálása
