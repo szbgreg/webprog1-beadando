@@ -125,7 +125,9 @@ function validateForm(formData) {
 // Új sor hozzáadása a táblázathoz
 function insertRow(formData) {
   const { name, birthYear, study, code } = formData;
-  const table = document.getElementById("student-table");
+  const table = document
+    .getElementById("student-table")
+    .getElementsByTagName("tbody")[0];
   const newRow = table.insertRow();
 
   newRow.insertCell(0).innerText = name;
