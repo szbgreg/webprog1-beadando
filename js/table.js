@@ -26,6 +26,9 @@ const testData = [
   },
 ];
 
+// Ez a változó tárolja a kiválasztott sort, amelyet szerkeszteni szeretnénk
+let selectedRow = null;
+
 // A táblázat feltöltése a tesztadatokkal
 function loadTable() {
   testData.forEach((data) => {
@@ -54,8 +57,12 @@ function handleSubmit(e) {
     return;
   }
 
-  // Új sor hozzáadása a táblázathoz
-  insertRow(formData);
+  // Ha van kiválasztott sor, akkor frissítjük azt, különben új sort adunk hozzá
+  if (selectedRow) {
+    updateRow(formData);
+  } else {
+    insertRow(formData);
+  }
 
   form.reset();
 }
@@ -121,4 +128,26 @@ function insertRow(formData) {
   newRow.insertCell(1).innerText = birthYear;
   newRow.insertCell(2).innerText = study;
   newRow.insertCell(3).innerText = code.toUpperCase();
+  newRow.insertCell(4).innerHTML = `<a onclick="editRow(this)">Szerkesztés</a>`;
+}
+
+// Sor frissítése a táblázatban
+function updateRow(formData) {
+  const { name, birthYear, study, code } = formData;
+  selectedRow.cells[0].innerText = name;
+  selectedRow.cells[1].innerText = birthYear;
+  selectedRow.cells[2].innerText = study;
+  selectedRow.cells[3].innerText = code;
+
+  selectedRow = null;
+}
+
+// Sor szerkesztése
+function editRow(button) {
+  selectedRow = button.parentElement.parentElement;
+
+  document.getElementById("name").value = selectedRow.cells[0].innerHTML;
+  document.getElementById("birthYear").value = selectedRow.cells[1].innerHTML;
+  document.getElementById("study").value = selectedRow.cells[2].innerHTML;
+  document.getElementById("code").value = selectedRow.cells[3].innerHTML;
 }
