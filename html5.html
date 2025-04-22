@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/html5.css" />
     <title>Web-programozás-1 Előadás Házi feladat</title>
   </head>
   <body>
@@ -24,10 +25,34 @@
       <h2>Aside rész</h2>
     </aside>
     <div class="content">
-      <h2>HTML5</h2>
+      <h2>3. HTML5</h2>
+
+      <section>
+        <p>
+          <b>A feladat:</b> Készítsen a következő témákhoz 1-1 kis példát: Web
+          Storage, Web Workers, Server-Sent Events, Geolocation API, Drag and
+          drop API, Canvas, SVG
+        </p>
+      </section>
+
+      <section id="local-storage">
+        <h3>Web Storage - localStorage</h3>
+        <div class="storage-container">
+          <form>
+            <label for="name">Add meg a nevedet:</label>
+            <input id="name" type="text" />
+            <button class="button" onclick="saveName()" type="button">
+              Mentés
+            </button>
+          </form>
+          <p id="output"></p>
+        </div>
+      </section>
     </div>
     <footer>
       <p>Szabó Gergely (X665HD)</p>
     </footer>
+
+    <script src="js/html5.js"></script>
   </body>
 </html>
