@@ -70,6 +70,33 @@
           </div>
         </div>
       </section>
+
+      <section id="web-workers">
+        <h3>Web Workers</h3>
+
+        <div class="worker-wrapper">
+          <div class="worker-container">
+            <p>
+              A gomb megnyomásával elindítunk egy Web Worker-t, ami
+              másodpercenként növeli a számlálónkat.
+            </p>
+
+            <button class="button" onclick="startWorker()" type="button">
+              Számolás indítása
+            </button>
+
+            <button
+              class="button button-red"
+              onclick="stopWorker()"
+              type="button"
+            >
+              Leállítás
+            </button>
+          </div>
+
+          <p id="worker-message">Számláló: 0</p>
+        </div>
+      </section>
     </div>
 
     <footer>

@@ -1,4 +1,5 @@
-.storage-container {
+.storage-container,
+.worker-wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -18,6 +19,7 @@
 
 #local-storage form,
 #login,
-#welcome{
+#welcome,
+.worker-container {
   width: 450px;
 }

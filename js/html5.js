@@ -46,3 +46,27 @@ function showWelcome() {
     document.getElementById("welcome").style.display = "block";
   }
 }
+
+// Számláló indítása Web Worker-rel
+let worker;
+
+function startWorker() {
+  if (typeof Worker !== "undefined") {
+    worker = new Worker("js/worker.js");
+
+    worker.onmessage = function (e) {
+      document.getElementById("worker-message").innerText = e.data;
+    };
+  } else {
+    alert("A böngésződ nem támogatja a Web Workers-t.");
+  }
+}
+
+// Számláló leállítása
+function stopWorker() {
+  if (worker) {
+    worker.terminate();
+    worker = null;
+    document.getElementById("worker-message").innerText = "A számláló leállt.";
+  }
+}

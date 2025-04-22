@@ -103,8 +103,18 @@ input[type="text"] {
   font-size: 16px;
   padding: 10px 20px;
   float: right;
+  margin: 0px 5px;
 }
 
 .button:hover {
   background-color: #d4a200;
+}
+
+.button-red {
+  background-color: #da3030;
+  color: white;
+}
+
+.button-red:hover {
+  background-color: #b42c2c;
 }
