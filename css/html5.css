@@ -16,6 +16,8 @@
   margin: 0;
 }
 
-#local-storage form {
+#local-storage form,
+#login,
+#welcome{
   width: 450px;
 }

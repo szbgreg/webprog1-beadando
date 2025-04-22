@@ -18,3 +18,31 @@ window.onload = () => {
     document.getElementById("output").innerText = "Üdv, " + name + "!";
   }
 };
+
+// Belépéskor, lementjük a sessionStorage-ba
+function login() {
+  const user = document.getElementById("username").value;
+
+  if (user) {
+    sessionStorage.setItem("user", user);
+    showWelcome();
+  }
+}
+
+// Kilépéskor töröljük
+function logout() {
+  sessionStorage.removeItem("user");
+  document.getElementById("welcome").style.display = "none";
+  document.getElementById("login").style.display = "block";
+}
+
+// Üdvözlő üzenet megjelenítése
+function showWelcome() {
+  const user = sessionStorage.getItem("user");
+
+  if (user) {
+    document.getElementById("welcome-message").innerText = "Üdv, " + user + "!";
+    document.getElementById("login").style.display = "none";
+    document.getElementById("welcome").style.display = "block";
+  }
+}
