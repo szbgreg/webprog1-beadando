@@ -39,7 +39,7 @@
 
       <section id="local-storage">
         <h3>Web Storage - localStorage</h3>
-        <div class="storage-container">
+        <div class="wrapper">
           <form>
             <label for="name">Add meg a nevedet:</label>
             <input id="name" type="text" />
@@ -54,7 +54,7 @@
       <section id="session-storage">
         <h3>Web Storage - sessionStorage</h3>
 
-        <div class="storage-container">
+        <div class="wrapper">
           <form id="login">
             <input id="username" type="text" placeholder="Felhasználónév" />
             <button class="button" onclick="login()" type="button">
@@ -74,8 +74,8 @@
       <section id="web-workers">
         <h3>Web Workers</h3>
 
-        <div class="worker-wrapper">
-          <div class="worker-container">
+        <div class="wrapper">
+          <div class="container">
             <p>
               A gomb megnyomásával elindítunk egy Web Worker-t, ami
               másodpercenként növeli a számlálónkat.
@@ -95,6 +95,21 @@
           </div>
 
           <p id="worker-message">Számláló: 0</p>
+        </div>
+      </section>
+
+      <section id="server-sent-events">
+        <h3>Server-Sent Events</h3>
+
+        <div class="wrapper">
+          <div class="container">
+            <p>Kattints a gombra, hogy lekérj egy új terméket a szervertől:</p>
+            <button class="button" onclick="getProduct()">
+              Kérek egy terméket
+            </button>
+          </div>
+
+          <div id="product" class="product" style="display: none"></div>
         </div>
       </section>
     </div>

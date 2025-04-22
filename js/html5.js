@@ -70,3 +70,24 @@ function stopWorker() {
     document.getElementById("worker-message").innerText = "A számláló leállt.";
   }
 }
+
+// Server-Sent Events indítása
+function getProduct() {
+
+  if (typeof EventSource !== "undefined") {
+    const eventSource = new EventSource("sse.php");
+
+    eventSource.onmessage = function (event) {
+      const data = JSON.parse(event.data);
+      const div = document.getElementById("product");
+
+      div.style.display = "block";
+      div.innerHTML = `<strong>Termék neve:</strong> ${data.name}<br>
+      <strong>Ár:</strong> ${data.price} Ft`;
+      eventSource.close();
+    };
+  } else {
+    document.getElementById("result").innerText =
+      "A böngésződ nem támogatja a Server-Sent Events-t.";
+  }
+}
