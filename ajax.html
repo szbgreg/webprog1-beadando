@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/ajax.css" />
     <title>Web-programozás-1 Előadás Házi feladat</title>
   </head>
   <body>
@@ -25,9 +26,23 @@
     </aside>
     <div class="content">
       <h2>AJAX</h2>
+
+      <div>
+        <label>Kód: <span id="code"></span></label>
+      </div>
+
+      <section id="read">
+        <h1>Read</h1>
+        <button class="button" onclick="read()">Betöltés</button>
+        <div id="dataTable"></div>
+        <div id="statistics"></div>
+      </section>
     </div>
+
     <footer>
       <p>Szabó Gergely (X665HD)</p>
     </footer>
+
+    <script src="js/ajax.js"></script>
   </body>
 </html>

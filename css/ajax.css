@@ -1,0 +1,22 @@
+#dataTable table {
+  width: 800px;
+  border-collapse: collapse;
+  margin: 20px 0;
+  text-align: right;
+  clear: both;
+}
+
+td,
+th {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+#read {
+  margin-top: 20px;
+  width: 800px;
+}
+
+#read button {
+  margin-bottom: 20px;
+}
