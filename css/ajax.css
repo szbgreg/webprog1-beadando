@@ -12,11 +12,20 @@ th {
   border: 1px solid #ddd;
 }
 
-#read {
+#read-section {
   margin-top: 20px;
   width: 800px;
 }
 
-#read button {
+#create-section {
+  margin-top: 20px;
+  width: 400px;
+}
+
+#read-section button {
   margin-bottom: 20px;
+}
+
+#createMessage {
+  margin-top: 10px;
 }

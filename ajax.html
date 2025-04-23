@@ -31,11 +31,20 @@
         <label>Kód: <span id="code"></span></label>
       </div>
 
-      <section id="read">
+      <section id="read-section">
         <h1>Read</h1>
         <button class="button" onclick="read()">Betöltés</button>
         <div id="dataTable"></div>
         <div id="statistics"></div>
+      </section>
+
+      <section id="create-section">
+        <h1>Create</h1>
+        <input type="text" id="name1" placeholder="Név" maxlength="30" />
+        <input type="text" id="height1" placeholder="Magasság" maxlength="30" />
+        <input type="text" id="weight1" placeholder="Súly" maxlength="30" />
+        <button class="button" onclick="create()">Hozzáadás</button>
+        <div id="createMessage"></div>
       </section>
     </div>
 

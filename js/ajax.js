@@ -1,4 +1,4 @@
-const code = "BBBBBBefg456";
+const code = "BBBBBBxqz789";
 const url = "http://gamf.nhely.hu/ajax2/";
 
 document.getElementById("code").textContent = code;
@@ -54,3 +54,36 @@ async function read() {
 
 // Oldal betöltéskor Read hívás
 window.onload = read;
+
+// Create
+async function create() {
+  const nameVal = document.getElementById("name1").value;
+  const heightVal = document.getElementById("height1").value;
+  const weightVal = document.getElementById("weight1").value;
+
+  if (validate(nameVal) && validate(heightVal) && validate(weightVal)) {
+    let resp = await fetch(url, {
+      method: "post",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `code=${code}&op=create&name=${nameVal}&height=${heightVal}&weight=${weightVal}`,
+    });
+
+    let result = await resp.text();
+    document.getElementById("createMessage").textContent =
+      result > 0 ? "Hozzáadás sikeres!" : "Sikertelen hozzáadás!";
+
+    document.getElementById(`name1`).value = "";
+    document.getElementById(`height1`).value = "";
+    document.getElementById(`weight1`).value = "";
+
+    read();
+  } else {
+    document.getElementById("createMessage").textContent =
+      "Kötelező a mezők kitöltése! (Max. 30 karakter)";
+  }
+}
+
+// validáció
+function validate(val) {
+  return val.length > 0 && val.length <= 30;
+}
