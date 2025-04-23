@@ -1,0 +1,69 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: 35px;
+}
+
+#local-storage h3 {
+  display: block;
+}
+
+#output,
+#worker-message {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+#local-storage form,
+#login,
+#welcome,
+.container {
+  width: 450px;
+}
+
+section {
+  margin-bottom: 30px;
+}
+
+.container p {
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.day {
+  width: 200px;
+}
+
+.day ul {
+  list-style: none;
+  padding: 10px;
+  min-height: 200px;
+  border: 2px dashed #c4c4c4;
+  background-color: #f7f7f7;
+}
+
+.day ul li {
+  background: #f5eedb;
+  border: 1px solid #e7b50f;
+  border-radius: 7px;
+  margin: 6px 0;
+  padding: 8px;
+  cursor: grab;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  background: #fff;
+}

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/html5.css" />
     <title>Web-programozás-1 Előadás Házi feladat</title>
   </head>
   <body>
@@ -20,14 +21,255 @@
         <li><a href="oojs.html">OOJS</a></li>
       </ul>
     </nav>
+
     <aside>
       <h2>Aside rész</h2>
     </aside>
+
     <div class="content">
-      <h2>HTML5</h2>
+      <h2>3. HTML5</h2>
+
+      <section>
+        <p>
+          <b>A feladat:</b> Készítsen a következő témákhoz 1-1 kis példát: Web
+          Storage, Web Workers, Server-Sent Events, Geolocation API, Drag and
+          drop API, Canvas, SVG
+        </p>
+      </section>
+
+      <section id="local-storage">
+        <h3>Web Storage - localStorage</h3>
+        <div class="wrapper">
+          <form>
+            <label for="name">Add meg a nevedet:</label>
+            <input id="name" type="text" />
+            <button class="button" onclick="saveName()" type="button">
+              Mentés
+            </button>
+          </form>
+          <p id="output"></p>
+        </div>
+      </section>
+
+      <section id="session-storage">
+        <h3>Web Storage - sessionStorage</h3>
+
+        <div class="wrapper">
+          <form id="login">
+            <input id="username" type="text" placeholder="Felhasználónév" />
+            <button class="button" onclick="login()" type="button">
+              Bejelentkezés
+            </button>
+          </form>
+
+          <div id="welcome" style="display: none">
+            <p id="welcome-message"></p>
+            <button class="button" onclick="logout()" type="button">
+              Kijelentkezés
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section id="web-workers">
+        <h3>Web Workers</h3>
+
+        <div class="wrapper">
+          <div class="container">
+            <p>
+              A gomb megnyomásával elindítunk egy Web Worker-t, ami
+              másodpercenként növeli a számlálónkat.
+            </p>
+
+            <button class="button" onclick="startWorker()" type="button">
+              Számolás indítása
+            </button>
+
+            <button
+              class="button button-red"
+              onclick="stopWorker()"
+              type="button"
+            >
+              Leállítás
+            </button>
+          </div>
+
+          <p id="worker-message">Számláló: 0</p>
+        </div>
+      </section>
+
+      <section id="server-sent-events">
+        <h3>Server-Sent Events</h3>
+
+        <div class="wrapper">
+          <div class="container">
+            <p>Kattints a gombra, hogy lekérj egy új terméket a szervertől:</p>
+            <button class="button" onclick="getProduct()">
+              Kérek egy terméket
+            </button>
+          </div>
+
+          <div id="product" class="product" style="display: none"></div>
+        </div>
+      </section>
+
+      <section id="drag-n-drop">
+        <h2>Drag and Drop</h2>
+        <p>
+          Itt Drag and Drop módszerrel át lehet húzni a feladatokat valamelyik
+          nap-nak a listájára.
+        </p>
+
+        <div class="day-container">
+          <div class="day">
+            <h3>Hétfő</h3>
+            <ul id="monday" ondragover="allowDrop(event)" ondrop="drop(event)">
+              <li id="task1" draggable="true" ondragstart="drag(event)">
+                Tanulás
+              </li>
+              <li id="task2" draggable="true" ondragstart="drag(event)">
+                Futás
+              </li>
+              <li id="task3" draggable="true" ondragstart="drag(event)">
+                Takarítás
+              </li>
+            </ul>
+          </div>
+
+          <div class="day">
+            <h3>Kedd</h3>
+            <ul
+              id="thuesday"
+              ondragover="allowDrop(event)"
+              ondrop="drop(event)"
+            >
+              <li id="task4" draggable="true" ondragstart="drag(event)">
+                Programozás
+              </li>
+              <li id="task5" draggable="true" ondragstart="drag(event)">
+                Bevásárlás
+              </li>
+            </ul>
+          </div>
+
+          <div class="day">
+            <h3>Szerda</h3>
+            <ul
+              id="wednesday"
+              ondragover="allowDrop(event)"
+              ondrop="drop(event)"
+            ></ul>
+          </div>
+
+          <div class="day">
+            <h3>Csütörtök</h3>
+            <ul
+              id="thursday"
+              ondragover="allowDrop(event)"
+              ondrop="drop(event)"
+            ></ul>
+          </div>
+
+          <div class="day">
+            <h3>Péntek</h3>
+            <ul
+              id="friday"
+              ondragover="allowDrop(event)"
+              ondrop="drop(event)"
+            ></ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="canvas">
+        <h2>Canvas</h2>
+        <canvas id="house" width="300" height="300"></canvas>
+      </section>
+
+      <section id="svg">
+        <h2>SVG</h2>
+        <svg width="200" height="200" viewBox="0 0 200 200">
+          <circle
+            cx="100"
+            cy="100"
+            r="30"
+            fill="yellow"
+            stroke="gold"
+            stroke-width="4"
+          />
+          <line
+            x1="100"
+            y1="30"
+            x2="100"
+            y2="50"
+            stroke="orange"
+            stroke-width="4"
+          />
+          <line
+            x1="100"
+            y1="150"
+            x2="100"
+            y2="170"
+            stroke="orange"
+            stroke-width="4"
+          />
+          <line
+            x1="50"
+            y1="100"
+            x2="30"
+            y2="100"
+            stroke="orange"
+            stroke-width="4"
+          />
+          <line
+            x1="150"
+            y1="100"
+            x2="170"
+            y2="100"
+            stroke="orange"
+            stroke-width="4"
+          />
+
+          <line
+            x1="135"
+            y1="135"
+            x2="160"
+            y2="160"
+            stroke="orange"
+            stroke-width="4"
+          />
+          <line
+            x1="65"
+            y1="65"
+            x2="40"
+            y2="40"
+            stroke="orange"
+            stroke-width="4"
+          />
+          <line
+            x1="135"
+            y1="65"
+            x2="160"
+            y2="40"
+            stroke="orange"
+            stroke-width="4"
+          />
+          <line
+            x1="65"
+            y1="135"
+            x2="40"
+            y2="160"
+            stroke="orange"
+            stroke-width="4"
+          />
+        </svg>
+      </section>
     </div>
+
     <footer>
       <p>Szabó Gergely (X665HD)</p>
     </footer>
+
+    <script src="js/html5.js"></script>
   </body>
 </html>
