@@ -107,8 +107,51 @@ function drop(ev) {
   const id = ev.dataTransfer.getData("text");
   const dragged = document.getElementById(id);
 
-  // Csak akkor engedjük a drop-ot ha az egyik nap ul-jében van elengedve
-  if (ev.target.tagName === "UL" && ev.target.parentElement.className === "day") {
+  // Csak akkor engedélyezzük a húzást, ha a cél elem egy lista a "day" osztályban
+  if (
+    ev.target.tagName === "UL" &&
+    ev.target.parentElement.className === "day"
+  ) {
     ev.target.appendChild(dragged);
   }
 }
+
+// Canvas-os feladat
+const c = document.getElementById("house");
+const ctx = c.getContext("2d");
+
+// Épület oldala
+ctx.fillStyle = "#f5eedb";
+ctx.fillRect(75, 130, 150, 100);
+
+// Tető
+ctx.fillStyle = "#df522a";
+ctx.beginPath();
+ctx.moveTo(60, 130);
+ctx.lineTo(150, 50);
+ctx.lineTo(240, 130);
+ctx.closePath();
+ctx.fill();
+
+// Ajtó
+ctx.fillStyle = "#6d4c41";
+ctx.fillRect(165, 160, 40, 70);
+
+// kilincs
+ctx.beginPath();
+ctx.arc(172, 195, 3, 0, Math.PI * 2);
+ctx.fillStyle = "#ffeb3b";
+ctx.fill();
+
+// Ablak
+ctx.fillStyle = "#b2e6ed";
+ctx.fillRect(95, 150, 50, 50);
+ctx.strokeStyle = "#6d4c41";
+ctx.lineWidth = 3;
+ctx.strokeRect(95, 150, 50, 50);
+ctx.beginPath();
+ctx.moveTo(120, 150);
+ctx.lineTo(120, 200);
+ctx.moveTo(95, 175);
+ctx.lineTo(145, 175);
+ctx.stroke();
