@@ -107,5 +107,8 @@ function drop(ev) {
   const id = ev.dataTransfer.getData("text");
   const dragged = document.getElementById(id);
 
-  ev.target.appendChild(dragged);
+  // Csak akkor engedjük a drop-ot ha az egyik nap ul-jében van elengedve
+  if (ev.target.tagName === "UL" && ev.target.parentElement.className === "day") {
+    ev.target.appendChild(dragged);
+  }
 }
