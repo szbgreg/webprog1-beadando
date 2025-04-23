@@ -83,6 +83,59 @@ async function create() {
   }
 }
 
+// Update
+async function update() {
+  const id = document.getElementById("idUpd").value;
+  const nameVal = document.getElementById("name2").value;
+  const heightVal = document.getElementById("height2").value;
+  const weightVal = document.getElementById("weight2").value;
+
+  if (id && validate(nameVal) && validate(heightVal) && validate(weightVal)) {
+    let resp = await fetch(url, {
+      method: "post",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `code=${code}&op=update&id=${id}&name=${nameVal}&height=${heightVal}&weight=${weightVal}`,
+    });
+    let result = await resp.text();
+
+    document.getElementById("updateMessage").textContent =
+      result > 0 ? "Sikeres módosítás!" : "A módosítás sikertelen!";
+
+    document.getElementById(`name2`).value = "";
+    document.getElementById(`height2`).value = "";
+    document.getElementById(`weight2`).value = "";
+    document.getElementById(`idUpd`).value = "";
+
+    read();
+  } else {
+    document.getElementById("updateMessage").textContent =
+      "Kötelező a mezők kitöltése! (Max. 30 karakter)";
+  }
+}
+
+// Adat betöltése az ID alapján
+async function getDataForId() {
+  const id = parseInt(document.getElementById("idUpd").value);
+
+  if (!id) return;
+
+  let resp = await fetch(url, {
+    method: "post",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `code=${code}&op=read`,
+  });
+
+  let data = await resp.json();
+  /* console.log(data); */
+  const item = data.list.find((i) => i.id === id);
+
+  if (item) {
+    document.getElementById("name2").value = item.name;
+    document.getElementById("height2").value = item.height;
+    document.getElementById("weight2").value = item.weight;
+  }
+}
+
 // validáció
 function validate(val) {
   return val.length > 0 && val.length <= 30;

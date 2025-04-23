@@ -22,10 +22,20 @@ th {
   width: 400px;
 }
 
+#update-section {
+  margin-top: 50px;
+  width: 400px;
+}
+
 #read-section button {
   margin-bottom: 20px;
 }
 
-#createMessage {
+#createMessage,
+#updateMessage {
+  margin-top: 10px;
+}
+
+#idUpd {
   margin-top: 10px;
 }
