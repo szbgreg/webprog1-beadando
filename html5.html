@@ -112,6 +112,71 @@
           <div id="product" class="product" style="display: none"></div>
         </div>
       </section>
+
+      <section id="drag-n-drop">
+        <h2>Drag and Drop</h2>
+        <p>Itt Drag and Drop módszerrel át lehet húzni a feladatokat valamelyik nap-nak a listájára.</p>
+
+        <div class="day-container">
+          <div class="day">
+            <h3>Hétfő</h3>
+            <ul id="monday" ondragover="allowDrop(event)" ondrop="drop(event)">
+              <li id="task1" draggable="true" ondragstart="drag(event)">
+                Tanulás
+              </li>
+              <li id="task2" draggable="true" ondragstart="drag(event)">
+                Futás
+              </li>
+              <li id="task3" draggable="true" ondragstart="drag(event)">
+                Takarítás
+              </li>
+            </ul>
+          </div>
+
+          <div class="day">
+            <h3>Kedd</h3>
+            <ul
+              id="thuesday"
+              ondragover="allowDrop(event)"
+              ondrop="drop(event)"
+            >
+              <li id="task4" draggable="true" ondragstart="drag(event)">
+                Programozás
+              </li>
+              <li id="task5" draggable="true" ondragstart="drag(event)">
+                Bevásárlás
+              </li>
+            </ul>
+          </div>
+
+          <div class="day">
+            <h3>Szerda</h3>
+            <ul
+              id="wednesday"
+              ondragover="allowDrop(event)"
+              ondrop="drop(event)"
+            ></ul>
+          </div>
+
+          <div class="day">
+            <h3>Csütörtök</h3>
+            <ul
+              id="thursday"
+              ondragover="allowDrop(event)"
+              ondrop="drop(event)"
+            ></ul>
+          </div>
+
+          <div class="day">
+            <h3>Péntek</h3>
+            <ul
+              id="friday"
+              ondragover="allowDrop(event)"
+              ondrop="drop(event)"
+            ></ul>
+          </div>
+        </div>
+      </section>
     </div>
 
     <footer>

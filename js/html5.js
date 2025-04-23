@@ -73,7 +73,6 @@ function stopWorker() {
 
 // Server-Sent Events indítása
 function getProduct() {
-
   if (typeof EventSource !== "undefined") {
     const eventSource = new EventSource("sse.php");
 
@@ -90,4 +89,23 @@ function getProduct() {
     document.getElementById("result").innerText =
       "A böngésződ nem támogatja a Server-Sent Events-t.";
   }
+}
+
+// Drop engedélyezése
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+// A dataTransfer.setData() metódus beállítja az adattípust és a húzott adatok értékét
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+// A dataTransfer.getData() metódussal lekérjük a húzott elem azonosítóját, és hozzáadjuk a cél elemhez
+function drop(ev) {
+  ev.preventDefault();
+  const id = ev.dataTransfer.getData("text");
+  const dragged = document.getElementById(id);
+
+  ev.target.appendChild(dragged);
 }

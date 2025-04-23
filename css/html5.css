@@ -32,3 +32,33 @@ section {
   margin: 0 0 20px 0;
   padding: 0;
 }
+
+.day-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.day {
+  width: 200px;
+}
+
+.day ul {
+  list-style: none;
+  padding: 10px;
+  min-height: 200px;
+  border: 2px dashed #c4c4c4;
+  background-color: #f7f7f7;
+}
+
+.day ul li {
+  background: #f5eedb;
+  border: 1px solid #e7b50f;
+  border-radius: 7px;
+  margin: 6px 0;
+  padding: 8px;
+  cursor: grab;
+}
