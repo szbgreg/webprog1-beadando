@@ -136,6 +136,31 @@ async function getDataForId() {
   }
 }
 
+// Delete
+async function deleteF() {
+  const id = document.getElementById("idDel").value;
+
+  if (id) {
+    let resp = await fetch(url, {
+      method: "post",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `code=${code}&op=delete&id=${id}`,
+    });
+
+    let result = await resp.text();
+
+    document.getElementById("deleteMessage").textContent =
+      result > 0 ? "A törlés sikeres!" : "A törlés sikertelen!";
+
+    document.getElementById("idDel").value = "";
+
+    read();
+  } else {
+    document.getElementById("deleteMessage").textContent =
+      "Kötelező a mezők kitöltése! (Max. 30 karakter)";
+  }
+}
+
 // validáció
 function validate(val) {
   return val.length > 0 && val.length <= 30;

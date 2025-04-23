@@ -39,3 +39,15 @@ th {
 #idUpd {
   margin-top: 10px;
 }
+
+#delete-section {
+  margin-top: 50px;
+  width: 400px;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
