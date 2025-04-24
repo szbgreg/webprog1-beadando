@@ -9,14 +9,35 @@
 
 .product-item {
   list-style-type: none;
-  padding: 10px;
-  width: 300px;
+  padding: 10px 20px;
+  width: 325px;
   border-radius: 7px;
   border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: #f8f5ed;
+}
+
+.product-item h2 {
+  margin: 5px 0;
 }
 
 .product-item:hover {
   cursor: pointer;
+}
+
+.product-item p {
+  margin: 0;
+  padding: 0;
+}
+
+.product-item img {
+  width: 50%;
+  height: auto;
+  border-radius: 7px;
+  align-self: center;
 }
 
 #cart-list {

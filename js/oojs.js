@@ -27,6 +27,10 @@ class Product {
     title.textContent = this.getName();
     li.appendChild(title);
 
+    const image = document.createElement("img");
+    image.src = "images/" + this.category.toLowerCase() + ".png";
+    li.appendChild(image);
+
     const category = document.createElement("p");
     category.innerHTML = `<strong>Kategória:</strong> ${this.getCategory()}`;
     li.appendChild(category);
