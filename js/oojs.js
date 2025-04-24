@@ -146,7 +146,7 @@ class Cart {
       const removeButton = document.createElement("button");
 
       removeButton.textContent = "Törlés";
-      removeButton.className = "remove-button";
+      removeButton.className = "button button-red";
       removeButton.addEventListener("click", () => {
         this.remove(index);
         this.render();
@@ -182,6 +182,7 @@ const productList = document.getElementById("product-list");
 products.forEach((product) => {
   const li = product.render();
   const btn = document.createElement("button");
+  btn.className = "button";
 
   btn.textContent = "Kosárba";
   btn.addEventListener("click", () => addToCart(product));
