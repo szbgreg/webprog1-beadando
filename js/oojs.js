@@ -114,6 +114,11 @@ class Cart {
     this.items.push({ product });
   }
 
+  // Tétel törlése
+  remove(index) {
+    this.items.splice(index, 1);
+  }
+
   // Összeg számolása
   getTotal() {
     let total = 0;
@@ -132,11 +137,22 @@ class Cart {
 
     cartList.innerHTML = "";
 
-    this.items.forEach((item) => {
+    this.items.forEach((item, index) => {
       const li = document.createElement("li");
 
       li.className = "cart-item";
       li.textContent = `${item.product.getName()} - ${item.product.getPrice()} Ft`;
+
+      const removeButton = document.createElement("button");
+
+      removeButton.textContent = "Törlés";
+      removeButton.className = "remove-button";
+      removeButton.addEventListener("click", () => {
+        this.remove(index);
+        this.render();
+      });
+
+      li.appendChild(removeButton);
       cartList.appendChild(li);
     });
 
