@@ -103,6 +103,47 @@ class Tablet extends Product {
   }
 }
 
+// Kosár osztály
+class Cart {
+  constructor() {
+    this.items = [];
+  }
+
+  // Kosárba helyezés
+  add(product) {
+    this.items.push({ product });
+  }
+
+  // Összeg számolása
+  getTotal() {
+    let total = 0;
+
+    this.items.forEach((item) => {
+      total += item.product.getPrice();
+    });
+
+    return total;
+  }
+
+  // Kosár tartalmának megjelenítése
+  render() {
+    const cartList = document.getElementById("cart-list");
+    const totalEl = document.getElementById("total-price");
+
+    cartList.innerHTML = "";
+
+    this.items.forEach((item) => {
+      const li = document.createElement("li");
+
+      li.className = "cart-item";
+      li.textContent = `${item.product.getName()} - ${item.product.getPrice()} Ft`;
+      cartList.appendChild(li);
+    });
+
+    totalEl.innerHTML = `<strong>Összesen:</strong> ${this.getTotal()} Ft`;
+  }
+}
+
 // Termékek létrehozása
 const products = [
   new Laptop("Dell XPS 13", 150000, "16GB", "512GB SSD"),
@@ -113,9 +154,23 @@ const products = [
   new Tablet("Samsung Galaxy Tab S7", 200000, '11"'),
 ];
 
-// Listaelemek megjelenítése a listában
+const cart = new Cart();
+
+function addToCart(product) {
+  cart.add(product);
+  cart.render();
+}
+
+const productList = document.getElementById("product-list");
+
 products.forEach((product) => {
   const li = product.render();
+  const btn = document.createElement("button");
 
-  document.getElementById("product-list").appendChild(li);
+  btn.textContent = "Kosárba";
+  btn.addEventListener("click", () => addToCart(product));
+  li.appendChild(btn);
+  productList.appendChild(li);
 });
+
+cart.render();
