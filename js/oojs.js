@@ -1,8 +1,9 @@
 // Termék osztály
 class Product {
-  constructor(name, price) {
+  constructor(name, category, price) {
     this.name = name;
     this.price = price;
+    this.category = category;
   }
 
   getName() {
@@ -11,6 +12,10 @@ class Product {
 
   getPrice() {
     return this.price;
+  }
+
+  getCategory() {
+    return this.category;
   }
 
   // Létrehozunk egy listaelemet a termékhez
@@ -22,8 +27,12 @@ class Product {
     title.textContent = this.getName();
     li.appendChild(title);
 
+    const category = document.createElement("p");
+    category.innerHTML = `<strong>Kategória:</strong> ${this.getCategory()}`;
+    li.appendChild(category);
+
     const price = document.createElement("p");
-    price.textContent = `Ár: ${this.getPrice()} Ft`;
+    price.innerHTML = `<strong>Ár:</strong> ${this.getPrice()} Ft`;
     li.appendChild(price);
 
     return li;
@@ -32,8 +41,8 @@ class Product {
 
 // Laptop osztály
 class Laptop extends Product {
-  constructor(name, price, ram, storage) {
-    super(name, price);
+  constructor(name, category, price, ram, storage) {
+    super(name, category, price);
     this.ram = ram;
     this.storage = storage;
   }
@@ -47,7 +56,7 @@ class Laptop extends Product {
     const li = super.render();
     const specs = document.createElement("p");
 
-    specs.textContent = `Specifikáció: ${this.getSpecs()}`;
+    specs.innerHTML = `<strong>Specifikáció:</strong> ${this.getSpecs()}`;
 
     li.appendChild(specs);
 
@@ -57,8 +66,8 @@ class Laptop extends Product {
 
 // Mobil osztály
 class Mobile extends Product {
-  constructor(name, price, camera) {
-    super(name, price);
+  constructor(name, category, price, camera) {
+    super(name, category, price);
     this.camera = camera;
   }
 
@@ -71,7 +80,7 @@ class Mobile extends Product {
     const li = super.render();
     const cam = document.createElement("p");
 
-    cam.textContent = `Kamera: ${this.getCamera()}`;
+    cam.innerHTML = `<strong>Kamera:</strong> ${this.getCamera()}`;
 
     li.appendChild(cam);
 
@@ -81,8 +90,8 @@ class Mobile extends Product {
 
 // Tablet osztály
 class Tablet extends Product {
-  constructor(name, price, screenSize) {
-    super(name, price);
+  constructor(name, category, price, screenSize) {
+    super(name, category, price);
     this.screenSize = screenSize;
   }
 
@@ -95,7 +104,7 @@ class Tablet extends Product {
     const li = super.render();
     const screen = document.createElement("p");
 
-    screen.textContent = `Kijelzőméret: ${this.getScreenSize()}`;
+    screen.innerHTML = `<strong>Kijelzőméret:</strong> ${this.getScreenSize()}`;
 
     li.appendChild(screen);
 
@@ -162,12 +171,12 @@ class Cart {
 
 // Termékek létrehozása
 const products = [
-  new Laptop("Dell XPS 13", 150000, "16GB", "512GB SSD"),
-  new Laptop("MacBook Pro", 250000, "32GB", "1TB SSD"),
-  new Mobile("Samsung Galaxy S21", 200000, "108MP"),
-  new Mobile("iPhone 13", 250000, "12MP"),
-  new Tablet("iPad Pro", 300000, '12.9"'),
-  new Tablet("Samsung Galaxy Tab S7", 200000, '11"'),
+  new Laptop("Dell XPS 13", "Laptop", 150000, "16GB", "512GB SSD"),
+  new Laptop("MacBook Pro", "Laptop", 250000, "32GB", "1TB SSD"),
+  new Mobile("Samsung Galaxy S21", "Mobil", 200000, "108MP"),
+  new Mobile("iPhone 13", "Mobil", 250000, "12MP"),
+  new Tablet("iPad Pro", "Tablet", 300000, '12.9"'),
+  new Tablet("Samsung Galaxy Tab S7", "Tablet", 200000, '11"'),
 ];
 
 const cart = new Cart();
