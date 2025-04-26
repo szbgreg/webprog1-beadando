@@ -1,4 +1,4 @@
-const code = "BBBBBBxqz789";
+const code = "X665HDxqz789";
 const url = "http://gamf.nhely.hu/ajax2/";
 
 document.getElementById("code").textContent = code;
